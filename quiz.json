@@ -1,0 +1,206 @@
+{
+    "webb": {
+        "questions": [
+            {
+                "question": "Vad betyder URL?",
+                "options": [
+                    "Universal Recipe Library",
+                    "Uniform Resource Locator",
+                    "Urban Recycling Leaders",
+                    "Universal Resource Link"
+                ],
+                "answer": "Uniform Resource Locator"
+            },
+            {
+                "question": "Vad är en hyperlink?",
+                "options": [
+                    "En trådlös anslutning mellan två enheter",
+                    "Ett filformat för att packa ihop mappar",
+                    "En markerad text eller bild som leder till en annan plats när man klickar på den",
+                    "En digital signatur för att säkra e-post"
+                ],
+                "answer": "En markerad text eller bild som leder till en annan plats när man klickar på den"
+            },
+            {
+                "question": "Vart ligger världens största datacenter?",
+                "options": [
+                    "Kina",
+                    "Japan",
+                    "Tyskland",
+                    "USA"
+                ],
+                "answer": "Kina"
+            },
+            {
+                "question": "Ett privat nätverk som används för att dela information inom organisationer?",
+                "options": [
+                    "Intranät",
+                    "Extranät",
+                    "Routerprotokoll",
+                    "Internet"
+                ],
+                "answer": "Intranät"
+            },
+            {
+                "question": "Varför räcker det inte med bara switchar i ett stort nätverk som Internet?",
+                "options": [
+                    "För många switchar gör nätverket långsamt och sårbart",
+                    "Switchar fungerar bara med trådlösa nätverk",
+                    "Switchar kan inte kopplas ihop",
+                    "De kan inte hantera IP-adresser"
+                ],
+                "answer": "För många switchar gör nätverket långsamt och sårbart"
+            },
+            {
+                "question": "Vad är den största skillnaden mellan Internet och Webben?",
+                "options": [
+                    "Internet används bara i militären, Webben är offentlig",
+                    "Internet är infrastrukturen, Webben är en tjänst på den",
+                    "Webben fungerar utan Internet",
+                    "Webben är ett fysiskt nätverk"
+                ],
+                "answer": "Internet är infrastrukturen, Webben är en tjänst på den"
+            },
+            {
+                "question": "Vad har intranät och extranät gemensamt?",
+                "options": [
+                    "De fungerar bara med trådlösa anslutningar",
+                    "De använder samma teknik som Internet",
+                    "De använder olika protokoll än Internet",
+                    "De är båda öppna för allmänheten"
+                ],
+                "answer": "De använder samma teknik som Internet"
+            },
+            {
+                "question": "Vilket errormeddelande innebär att servern inte kunde hitta resursen?",
+                "options": [
+                    "400",
+                    "301",
+                    "404",
+                    "418"
+                ],
+                "answer": "404"
+            },
+            {
+                "question": "Vad står 's' i 'https' för?",
+                "options": [
+                    "Secure",
+                    "Signed",
+                    "Server",
+                    "Safe"
+                ],
+                "answer": "Secure"
+            },
+            {
+                "question": "En viktig funktion för Internet är Bluetooth. Namnet Bluetooth härstammar från dansken Harald Blåtand. Danmarks nationalrätt är pölse. Vad kostar ett kilo pölse i Köpenhamn år 2025?",
+                "options": [
+                    "Din heder",
+                    "Plånboken",
+                    "190 kr",
+                    "176"
+                ],
+                "answer": "190 kr"
+            },
+            {
+                "question": "På vilket sätt påverkar switches internet?",
+                "options": [
+                    "Minskar användning av kablar och plugs",
+                    "Ökar användning av kablar och plugs",
+                    "Gör laddningstider längre",
+                    "De påverkar inte"
+                ],
+                "answer": "De påverkar inte"
+            },
+            {
+                "question": "Vad heter de olika formerna av internet beroende på hur många som har tillgång?",
+                "options": [
+                    "Internet, Intranet, Extranet",
+                    "Webnet, Intranet, Outernet",
+                    "Internet, VPN, LAN",
+                    "Intranet, Ethernet, Internet"
+                ],
+                "answer": "Internet, Intranet, Extranet"
+            },
+            {
+                "question": "Varför finns DNS (Domain Name System)?",
+                "options": [
+                    "För att översätta IP-adresser till fysiska adresser",
+                    "För att skydda datorer från virus och skadlig kod",
+                    "För att enklare kunna komma ihåg IP-adresser man vill hitta",
+                    "För att mäta internethastigheten hos användare"
+                ],
+                "answer": "För att enklare kunna komma ihåg IP-adresser man vill hitta"
+            },
+            {
+                "question": "Vilken av följande alternativ beskriver 'Extranet'?",
+                "options": [
+                    "Ett nätverk tillgängligt för alla",
+                    "Ett nätverk tillgängligt för en mindre skara, ex. ett företag",
+                    "Ett nätverk tillgängligt för en större skara. ex. flera företag"
+                ],
+                "answer": "Ett nätverk tillgängligt för en större skara. ex. flera företag"
+            },
+            {
+                "question": "Vad gör ett modem i ett hemnätverk?",
+                "options": [
+                    "Den visar webbsidor",
+                    "Den skriver ut dokument",
+                    "Den kopplar nätverket till telefonledningen och Internet",
+                    "Den lagrar foton"
+                ],
+                "answer": "Den kopplar nätverket till telefonledningen och Internet"
+            },
+            {
+                "question": "Vad kallas protokollet som utgör webbens grund?",
+                "options": [
+                    "DNS",
+                    "TCP",
+                    "HTTP"
+                ],
+                "answer": "HTTP"
+            },
+            {
+                "question": "Http betyder Hypertext Transfer Protocol och slutar på TP, som står för teleportering i andra sammanhang. Ett spel med teleportering är Portal 2. Vad heter roboten som pratar med en under spelets gång?",
+                "options": [
+                    "Kratos",
+                    "J.K. Simmons",
+                    "GLaDOS",
+                    "Athena"
+                ],
+                "answer": "GLaDOS"
+            },
+            {
+                "question": "Vilken funktion fyller ett modem i kommunikationen mellan ett lokalt nätverk och Internet?",
+                "options": [
+                    "Det översätter data till ett språk som används i e-postprotokoll",
+                    "Det lagrar tillfälligt information som ska skickas till andra datorer",
+                    "Det omvandlar signaler mellan digitala nätverk och analoga telefonlinjer",
+                    "Det krypterar all trafik mellan datorer i ett hemmanätverk"
+                ],
+                "answer": "Det omvandlar signaler mellan digitala nätverk och analoga telefonlinjer"
+            },
+            {
+                "question": "Hur fungerar en switch för att optimera datakommunikationen i ett lokalt nätverk (LAN)?",
+                "options": [
+                    "Den analyserar innehållet i datapaket och filtrerar bort oviktiga delar",
+                    "Den avgör vilken dator som får prioritet i nätverkstrafiken baserat på lösenord",
+                    "Den omdirigerar alla inkommande datapaket till varje dator i nätverket samtidigt",
+                    "Den vidarebefordrar datapaket endast till den specifika mottagaren i nätverket"
+                ],
+                "answer": "Den vidarebefordrar datapaket endast till den specifika mottagaren i nätverket"
+            },
+            {
+                "question": "IRC (Internet Relay Chat) kan liknas med IRS, som rånar dig på pengar i USA. I Sverige är motsvarande organisation Skatteverket. Många är skuldsatta mot Skatteverket, men vem har allra högst skuld i Sverige?",
+                "options": [
+                    "Zlatan",
+                    "Bengt Ågerup",
+                    "Mårtenson",
+                    "Markus 'Notch' Persson"
+                ],
+                "answer": "Bengt Ågerup"
+            }
+        ],
+        "title": "Webbquiz",
+        "description": "Ett quiz för att testa dina kunskaper om teknik och internet."
+    }
+}

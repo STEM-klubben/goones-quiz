@@ -1,0 +1,19 @@
+.quiz-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: unset;
+}
+
+.quiz-answer {
+    background-color: #32353bdd;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.ans-user-avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    float: right;
+}

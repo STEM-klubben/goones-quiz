@@ -1,0 +1,53 @@
+{% extends "base.html.j2" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz_answers.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="quiz-title">
+            <h2>{{ quiz.title }}</h2>
+            <p>{{ quiz.description }}</p>
+        </section>
+
+        <section class="quiz-sorter">
+            <label>
+                Show answers for:
+                <select id="user-select" onchange="document.querySelectorAll('.quiz-answer').forEach(a=>{a.style.display='none'});document.querySelectorAll(this.value).forEach(a=>{a.style.display='unset'});">
+                    <option value=".quiz-answer">All Users</option>
+                    {% for id, user in users.items() %}
+                        <option value=".quiz-answer-{{ id }}">{{ user["name"] }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </section>
+
+        <section class="quiz-answers">
+            {% for answer in answers %}
+                <article class="quiz-answer quiz-answer-{{ answer['user']['id'] }}">
+                    <img class="ans-user-avatar" src="{{ answer['user']['picture'] }}" alt="User Avatar">
+                    <p>User {{ answer['user']['name'] }}</p>
+                    <p>Attempted at {{ answer['time'] }}</p>
+                    <p>Score: {{ answer['score'] }}/{{ quiz.questions|length }}</p>
+                    <details>
+                        <summary>View Answers</summary>
+                        <ul>
+                            {% for question, user_answer in answer['answers'].items() %}
+                                {% set question = question | int %}
+                                <li>
+                                    <strong>{{ quiz.questions[question].question }}</strong>: {{ user_answer }}
+                                    {% if quiz.questions[question].answer == user_answer %}
+                                        ✅
+                                    {% else %}
+                                        ❌
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>    
+                    </details>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

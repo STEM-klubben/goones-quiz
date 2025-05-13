@@ -1,0 +1,59 @@
+{% extends "base.html.j2" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="quiz-title">
+            <h2>{{ quiz.title }}</h2>
+            <p>{{ quiz.description }}</p>
+        </section>
+
+        <section class="quiz-result">
+            {% if total %}
+                <h3>Your Result: {{ correct|length }}/{{ total }}</h3>
+            {% elif session["user"] %}
+                <h3>Take the Quiz!</h3>
+                <p>Answer the questions below:</p>
+            {% else %}
+                <h3>Login to take the quiz!</h3>
+            {% endif %}
+        </section>
+
+        {% if session["user"] %}
+        <section class="quiz-questions">
+            <form method="POST" action="{{ url_for('quiz', id=id) }}">
+                {% for question in quiz.questions %}
+                    {% set outer = loop %}
+                    <div class="question">
+                        <h3>{{ question.question }}</h3>
+                        {% for option in question.options %}
+                            <label>
+                                <input type="radio" name="q{{ outer.index }}" value="{{ option }}" {{ 'checked' if answers[outer.index-1] == option else '' }} {{ 'disabled' if total else '' }}>
+                                
+                                {% if question.answer == option and total %}
+                                    ✅
+                                {% elif total and answers[outer.index-1] == option %}
+                                    ❌
+                                {% endif %}
+
+                                {{ option }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                {% if not total %}
+                    <div class="submit">
+                        <button type="submit">Submit</button>
+                    </div>
+                {% else %}
+                    <p>Thank you for taking the quiz!</p>
+                    <a href="{{ url_for('quiz', id=id) }}">Try again?</a>
+                {% endif %}
+            </form>
+        </section>
+        {% endif %}
+    </main>
+{% endblock %}

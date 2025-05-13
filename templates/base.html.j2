@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goones Quiz</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Goones Quiz</h1>
+
+        {% if session["user"] %}
+            <div class="user-info">
+                <div class="user">
+                    <img class="user-avatar" src="{{ session['user']['picture'] }}" alt="User Avatar">
+                    <p class="user-name">{{ session['user']['name'] }}</p>
+                </div>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('login') }}?next={{ url_for(request.endpoint, **request.view_args) }}" class="login-button">Login</a>
+        {% endif %}
+    </header>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

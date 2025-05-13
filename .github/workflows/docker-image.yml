@@ -1,0 +1,53 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  build-push-image:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: read
+      packages: write
+    
+    outputs:
+      date: ${{ steps.date.outputs.date }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +%s)" >> $GITHUB_OUTPUT  
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile  --tag ghcr.io/stem-klubben/goones-quiz:${{ steps.date.outputs.date }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push the Docker image to the GitHub registry
+        run: docker push ghcr.io/stem-klubben/goones-quiz:${{ steps.date.outputs.date }}
+
+  deploy:
+    runs-on: ubuntu-24.04-arm
+    needs: build-push-image
+
+    steps:
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add remote server to known_hosts
+        run: |
+                    ssh-keyscan goones.se >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
+          ssh goonesdeploy@goones.se "cd /var/www/se/quiz.goones && (echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin) && sed -i 's/^DOCKER_TAG=.*/DOCKER_TAG=${{ needs.build-push-image.outputs.date }}/' .env && docker compose up -d"
