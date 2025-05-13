@@ -13,7 +13,7 @@ from sqlalchemy import create_engine, Column, String, JSON
 from sqlalchemy.ext.mutable import MutableList
 from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
 
-engine = create_engine('sqlite:///./db.sqlite', connect_args={'check_same_thread': False})
+engine = create_engine(os.getenv('DB_URL', 'sqlite:///./db.sqlite'), connect_args={'check_same_thread': False})
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
