@@ -32,7 +32,6 @@ google_client_id = os.getenv("GOOGLE_CLIENT_ID")
 google_client_secret = os.getenv("GOOGLE_CLIENT_SECRET")
 if google_client_id is None or google_client_secret is None or app.secret_key is None:
     raise ValueError("GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET must be set, and FLASK_SECRET_KEY must be set.")
-google_redirect_uri = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8000/oauth/callback")
 
 oauth = OAuth(app)
 google = oauth.register(
@@ -210,7 +209,7 @@ def login():
     """
 
     session['next'] = request.args.get('next')
-    return google.authorize_redirect(google_redirect_uri)
+    return google.authorize_redirect(url_for('authorized', _external=True, _scheme='https'))
 
 @app.route('/oauth/callback')
 def authorized():
