@@ -46,8 +46,8 @@ jobs:
 
       - name: Add remote server to known_hosts
         run: |
-                    ssh-keyscan goones.se >> ~/.ssh/known_hosts
+                    ssh-keyscan deploy.goones.se >> ~/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
-          ssh goonesdeploy@goones.se "cd /var/www/se/quiz.goones && (echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin) && sed -i 's/^DOCKER_TAG=.*/DOCKER_TAG=${{ needs.build-push-image.outputs.date }}/' .env && docker compose up -d"
+          ssh goonesdeploy@deploy.goones.se "cd /var/www/se/quiz.goones && (echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin) && sed -i 's/^DOCKER_TAG=.*/DOCKER_TAG=${{ needs.build-push-image.outputs.date }}/' .env && docker compose up -d"
